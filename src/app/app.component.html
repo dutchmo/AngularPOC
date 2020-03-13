@@ -118,10 +118,6 @@
     cursor: pointer;
   }
 
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(black, 0.35);
-  }
 
   .card-container .card:not(.highlight-card):hover .material-icons path {
     fill: rgb(105, 103, 103);
@@ -528,5 +524,14 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<h1>{{ value }}</h1>
 
+<hr>
+
+<button (click)="increment()" class="increment">Increment</button>
+<button (click)="decrement()" class="decrement">Decrement</button>
+
+<p class="message">
+  {{ message }}
+</p>
 
