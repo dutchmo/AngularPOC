@@ -7,13 +7,27 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 @Injectable({
   providedIn: 'root'
 })
+//
+// interface Course {
+//   description: string;
+//   courseListIcon:string;
+//   iconUrl:string;
+//   longDescription:string;
+//   url:string;
+// }
+
+
 // https://www.positronx.io/angular-service-tutorial-with-example/
 // https://blog.angular-university.io/angular-http/
 export class Crudservice {
 
-  apiUrl: string = 'https://jsonplaceholder.typicode.com/todos/1';
+  // apiUrl: string = 'https://jsonplaceholder.typicode.com/todos/1';
+  apiUrl: string = 'https://angular-http-guide.firebaseio.com/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient) { }
+
+  //courses$: Observable<Course[]>;
+  courses$: Observable<any>;
 
   // Create
   createTask(data): Observable<any> {
@@ -25,9 +39,17 @@ export class Crudservice {
   }
 
   // Read
-  showTasks() {
+  showTasks2() {
     return this.http.get(`${this.apiUrl}`);
   }
+
+  showTasks() {
+  this.courses$ = this.http
+    .get("/courses.json").
+    .map(data => _.values(data))
+    .do(console.log);
+}
+
 
   // Update
   updateTask(id, data): Observable<any> {
