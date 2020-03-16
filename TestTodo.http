@@ -1,0 +1,102 @@
+GET https://jsonplaceholder.typicode.com/todos
+Accept: application/json
+
+<> 2020-03-15T111214.200.json
+
+###
+GET https://jsonplaceholder.typicode.com/todos/{{id}}
+Accepts: application/json
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+  print(response.headers)
+  client.log("Hello")
+%}
+
+
+
+###
+ For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+# https://www.jetbrains.com/help/idea/http-response-handling-examples.html#
+# https://blog.jetbrains.com/phpstorm/2018/04/handling-reponses-in-the-http-client/
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+
+
+###
+
+POST http://localhost:5000/service/send_chat_message/
+Content-Type: application/x-www-form-urlencoded
+
+id=99&content=new-element
+
+###
+
+GET http://localhost:5000/service/_add_numbers_test
+Content-Type: application/x-www-form-urlencoded
+
+Accepts: application/json
+a=99&b=88
+
+###
+
+GET http://localhost:5000/restapi/ping
+Content-Type: application/x-www-form-urlencoded
+
+Accepts: application/json
+a=99&b=882
+
+###
+
+POST http://localhost:5000/restapi/login
+Content-Type: application/x-www-form-urlencoded
+
+username=administrator&password=austindroids543
+
+###
+
+
+### ERRORS #########################################
+
+POST http://localhost:5000/restapi/survey
+
+### Supporter API #################################
+
+GET http://localhost:5000/restapi/supporters/
+Content-Type: application/json
+###
+GET http://localhost:5000/restapi/supporters/1
+Content-Type: application/json
+###
+POST http://localhost:5000/restapi/supporters/
+Content-Type: application/json
+
+{
+  "firstname": "Thomas",
+  "lastname": "Jefferson",
+  "email": "gregory_matous@yahoo.com"
+
+}
+
+###
+PUT http://localhost:5000/restapi/supporters/1
+Content-Type: application/json
+
+{
+  "firstname": "zzzzzzzzzzzzzzzzzz",
+  "lastname": "Matousqq",
+  "email": "gregory_matous@yahoo.com"
+
+}
+
+###
+DELETE http://localhost:5000/restapi/supporters/33
+Content-Type: application/json
+
+###
