@@ -535,3 +535,45 @@
   {{ message }}
 </p>
 
+<div [hidden]="!even">
+Number is Odd
+</div>
+
+<div [hidden]="even">
+  Number is Even
+</div>
+
+
+
+<p-checkbox name="groupname" value="val1"></p-checkbox>
+<p-checkbox name="groupname" value="val2" ></p-checkbox>
+
+
+
+<p-table [columns]="cols" [value]="allTodos" [paginator]="true" [rows]="10" (onPage)="paginate($event)" sortMode="multiple" [rowsPerPageOptions]="[5,10,20,50]" [totalRecords]="totalRecords">
+
+  <ng-template pTemplate="caption">
+    Todo List
+  </ng-template>
+
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+
+
+  <ng-template pTemplate="body" let-todo let-columns="columns">
+    <tr>
+
+      <td *ngFor="let col of columns">
+        {{todo[col.field]}}
+      </td>
+
+
+    </tr>
+  </ng-template>
+</p-table>
