@@ -48,6 +48,14 @@ export class AppComponent implements OnInit {
 
   increment() {
 
+    const myTodo: Todo = {
+      id: "Testid",
+      userId: "TestUser",
+      title: " My Title"
+    }
+    this.crudService.createTodo(myTodo)
+
+
     if (this.value%2 == 0) {
       this.even = true
     } else {

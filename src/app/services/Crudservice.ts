@@ -48,7 +48,6 @@ export class Crudservice {
 
 
 
-
   }
 
 
@@ -91,11 +90,16 @@ export class Crudservice {
 
   // Create
   createTodo(data): Observable<any> {
-    const API_URL = `${this.apiUrl}/create-task`;
-    return this.http.post(API_URL, data)
-      .pipe(
-        catchError(this.error)
-      )
+    const API_URL = `${this.apiUrl}`;
+    const obs =  this.http.post(API_URL, data).pipe(
+      map (res =>  res),
+      catchError(this.error)
+
+    )
+      obs.subscribe( data => console.log(data as Todo))
+
+       // catchError(this.error)
+  return obs
   }
 
   // Read
@@ -139,5 +143,5 @@ export interface Todo {
   userId: string;
   id:string;
   title:string;
-  completed:string;
+  completed?:string;
 }
