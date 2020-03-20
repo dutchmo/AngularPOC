@@ -13,7 +13,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 // https://www.positronx.io/angular-service-tutorial-with-example/
 // https://blog.angular-university.io/angular-http/
 
-export class Crudservice {
+export class CrudService {
 
   apiUrl: string = 'https://jsonplaceholder.typicode.com/todos';
 

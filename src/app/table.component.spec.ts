@@ -1,18 +1,18 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { AppComponent } from './app.component';
+import { TableComponent } from './table.component';
 
 describe('AppComponent', () => {
-  let fixture: ComponentFixture<AppComponent>;
+  let fixture: ComponentFixture<TableComponent>;
   let debugElement: DebugElement;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        TableComponent
       ],
     }).compileComponents();
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(TableComponent);
     debugElement = fixture.debugElement;
   }));
 
