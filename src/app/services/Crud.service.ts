@@ -2,6 +2,7 @@ import { Injectable} from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import {catchError, map, flatMap, take, filter, retry, delay, first} from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import * as moment from 'moment'; //import moment = require('moment');
 //import {Todo} from './Models';
 
 @Injectable({
@@ -54,12 +55,29 @@ export class CrudService {
   getAllTodos(): Observable<Todo[]> {
     const headers = { 'Authorization': 'Bearer my-token', 'My-Custom-Header': 'foobar' }
 
+    const doubleBy = x => map(value => <number>value * x(3));
+    type processorType = (x: Todo[]) => Todo[];
+    const mapper = (processor:processorType) => map((data: Todo[]) => processor(data));
+
+
     const obs = this.http
-      .get<Todo[]>(this.apiUrl, {headers}).pipe(delay(40))
-      obs.subscribe(data => {
+      .get<Todo[]>(this.apiUrl, {headers})
+      .pipe(
+        delay(10),
+        mapper(this.processTodos)
+      )
+
+
+/*      obs.subscribe(data => {
       console.log("setting in service")
+        this.processTodos(data)
       this.allTodos = data
-    })
+
+        for (let todo of this.allTodos) { // iterables
+          console.log("processed date todo" + JSON.stringify(todo) )
+        }
+
+    })*/
 
     return obs
   }
@@ -137,6 +155,20 @@ export class CrudService {
     return throwError(errorMessage);
   }
 
+  processTodos(todos: Todo[]) : Todo[] {
+
+    todos.forEach((todo, index) => {
+      let now = moment();
+      now.add(index, 'days')
+      todo.created_date = now.format("MM/DD/YY");
+    });
+
+/*    for (let todo of todos) { // iterables
+      moment("12-25-1995", "MM-DD-YYYY");
+      todo.created_date = new Date()
+    }*/
+    return todos
+  }
 }
 
 export interface Todo {
@@ -144,4 +176,7 @@ export interface Todo {
   id:string;
   title:string;
   completed?:string;
+  created_date?: string
+ // created_date?: Date
 }
+

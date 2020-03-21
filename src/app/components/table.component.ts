@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import {CrudService, Todo} from './services/Crud.service';
+import {CrudService, Todo} from '../services/Crud.service';
 import {ConfirmationService, MessageService} from 'primeng';
 
 @Component({
@@ -29,7 +29,8 @@ export class TableComponent implements OnInit {
   cols = [
     { field: 'id', header: 'ID' },
     { field: 'userId', header: 'User ID' },
-    { field: 'title', header: 'Title' }
+    { field: 'title', header: 'Title' },
+    { field: 'created_date', header: 'Created' }
   ];
 
   selectedValues: string[] = [];
@@ -39,10 +40,12 @@ export class TableComponent implements OnInit {
   profileForm: FormGroup;
   loading: boolean;
 userIds = [
-    { label: 'One', value: 1 },
+  { label: 'Select..', value: ''},
+    { label: 'One', value: '1' },
     { label: 'Two', value: 2 },
     { label: 'Three', value: 3 },
   ]
+  //userIds.unshift(99999)
   value = 1;
   message: string;
 
@@ -81,7 +84,7 @@ userIds = [
       this.even = false
     }
 
-    this.crudService.getAllTodos().subscribe(todos => {this.allTodos = todos.slice(1,40); this.totalRecords = this.allTodos.length; console.log("setting on component") })
+    this.crudService.getAllTodos().subscribe(todos => {this.allTodos = todos.slice(1,40); this.totalRecords = 40; })
 
     this.crudService.getTodo(this.value)
 

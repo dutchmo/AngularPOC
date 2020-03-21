@@ -55,9 +55,6 @@
 </form>
 
 
-<p-checkbox name="groupname" value="val1"></p-checkbox>
-<p-checkbox name="groupname" value="val2"></p-checkbox>
-
 
 <p-table #tt [columns]="cols" [value]="allTodos" show-filter="true" [paginator]="true" [rows]="10"
          (onPage)="paginate($event)"
@@ -91,6 +88,10 @@
         <p-dropdown *ngSwitchCase="'userId'" [options]="userIds" [style]="{'width':'20%'}"
                     (onChange)="tt.filter($event.value, col.field, 'equals')"></p-dropdown>
 
+        <input *ngSwitchCase="'created_date'" pInputText type="text"
+               (input)="tt.filter(($event.target.value ), col.field, 'contains')">
+
+
         <input *ngSwitchDefault pInputText type="text"
                (input)="tt.filter($event.target.value, col.field, col.filterMatchMode)">
 
@@ -112,8 +113,12 @@
         <a *ngSwitchCase="'id'" style="cursor:pointer"
            (click)="confirmDialog()">{{todo[col.field]}}</a>
 
+        <span *ngSwitchCase="'created_date'"  filter="{ id: 'text'}">
+        {{todo.created_date  }}
+        </span>
+
         <span *ngSwitchDefault>
-        {{todo[col.field]}}
+        {{todo[col.field] }}
         </span>
 
       </td>
@@ -124,7 +129,7 @@
 
   <ng-template pTemplate="emptymessage" let-columns>
     <tr>
-      <td [attr.colspan]="columns.length">
+      <td [attr.colspan]="columns.length +1">
         No records found
       </td>
     </tr>
