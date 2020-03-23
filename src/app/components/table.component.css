@@ -1,0 +1,47 @@
+input[type=text]:focus:not([readonly]) + label {
+  color: green;
+}
+
+input[type=text]:focus:not([ng-touched]) {
+  border-bottom: 1px solid green;
+  box-shadow: 0 1px 0 0 green;
+}
+
+.simple-form {
+  display: flex;
+  overflow-y: scroll;
+  padding-bottom: 1.25rem;
+}
+.simple-form input {
+  margin: 0 .25rem;
+  min-width: 125px;
+  border: 1px solid #eee;
+  border-left: 3px solid;
+  border-radius: 5px;
+  transition: border-color .5s ease-out;
+}
+.simple-form input:optional {
+  border-left-color: #999;
+}
+.simple-form input:required {
+  border-left-color: palegreen;
+}
+.simple-form input:invalid {
+  border-left-color: salmon;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-untouched {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.ng-touched {
+  border-left: 5px solid #0000FF; /* red */
+}
+
+.ng-dirty {
+  border-left: 25px solid #0000FF; /* red */
+}

@@ -38,7 +38,7 @@
 
 <form [formGroup]="myForm"
       (ngSubmit)="onSubmit2(myForm.value)"
-      class="ui form">
+      class="simple-form">
 
   <div class="field" [class.error]="!myForm.controls.sku.valid && myForm.controls.sku.touched">
     <label for="skuInput">SKU</label>
@@ -54,6 +54,9 @@
   <button type="submit" class="ui button">Submit</button>
 </form>
 
+<div class="error" ng-show="myForm.firstName.$touched">
+  E-mail is dirty
+</div>
 
 
 <p-table #tt [columns]="cols" [value]="allTodos" show-filter="true" [paginator]="true" [rows]="10"
@@ -66,7 +69,6 @@
   </ng-template>
 
   <ng-template pTemplate="header" let-columns>
-
     <tr>
       <th style="width: 3em">
       </th>
@@ -81,7 +83,7 @@
         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
       </th>
 
-      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+      <th *ngFor="let col of columns" [ngSwitch]="col.field" >
         <input *ngSwitchCase="'id'" pInputText type="text"
                (input)="tt.filter($event.target.value, col.field, col.filterMatchMode)">
 
@@ -111,7 +113,7 @@
 
 
         <a *ngSwitchCase="'id'" style="cursor:pointer"
-           (click)="confirmDialog()">{{todo[col.field]}}</a>
+           (click)="showConfirm()">{{todo[col.field]}}</a>
 
         <span *ngSwitchCase="'created_date'"  filter="{ id: 'text'}">
         {{todo.created_date  }}
@@ -130,7 +132,7 @@
   <ng-template pTemplate="emptymessage" let-columns>
     <tr>
       <td [attr.colspan]="columns.length +1">
-        No records found
+        No records found.
       </td>
     </tr>
   </ng-template>
@@ -147,8 +149,19 @@
 </p-table>
 
 
-<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+<p-dialog  [(visible)]="displayConfirmDialog" [responsive]="true" showEffect="fade" [modal]="true"  [closable]="false"  [style]="{width: '30%'}"  >
+  <div class="dialog-box">
+    <h1  style="text-align: center">Deleting New Hire Info.</h1>
+    <p style="padding: 10px 10px"> Are you sure to delete selected New Hire record?</p>
+    <br>
+    <p-button  (click)="displayConfirmDialog=false" label="  Cancel  "></p-button> &nbsp;&nbsp;
+    <p-button  (click)="confirmAction()" label="  Yes  "></p-button>
+    <br><br>
+  </div>
+</p-dialog>
 
-<button type="button" (click)="confirmDialog()" pButton icon="pi pi-check" label="Confirm"></button>
+<p-confirmDialog [style]="{width: '50px'}"></p-confirmDialog>
+
+<button type="button" (click)="showConfirm()" pButton icon="pi pi-check" label="Confirm"></button>
 
 <p-messages></p-messages>

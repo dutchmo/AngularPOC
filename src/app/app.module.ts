@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TableComponent } from './components/table.component';
 import {CrudService} from './services/Crud.service';
-import {Checkbox, CheckboxModule, ConfirmDialogModule, DropdownModule, MessagesModule} from 'primeng';
+import {Checkbox, CheckboxModule, ConfirmDialogModule, DialogModule, DropdownModule, MessagesModule} from 'primeng';
 import {ReactiveFormsModule} from '@angular/forms';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 
@@ -15,17 +15,18 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
     TableComponent,
     DateFormatPipe
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    TableModule,
-    CheckboxModule,
-    ReactiveFormsModule,
-    DropdownModule,
-    ConfirmDialogModule,
-    MessagesModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        TableModule,
+        CheckboxModule,
+        ReactiveFormsModule,
+        DropdownModule,
+        ConfirmDialogModule,
+        MessagesModule,
+        DialogModule
+    ],
   providers: [CrudService],
   bootstrap: [TableComponent]
 })

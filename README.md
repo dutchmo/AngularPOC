@@ -44,3 +44,12 @@ Run `ng generate`
 ng add
  ng config
 ng version
+
+Sorting by date:
+https://stackoverflow.com/questions/41181277/primeng-datatable-custom-sorting-or-filtering-angular-2
+
+hidden]="!myVar"
+Or you can use *ngIf
+*ngIf="myVar"
+
+208653034

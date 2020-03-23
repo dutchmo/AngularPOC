@@ -2,7 +2,7 @@ import { Injectable} from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import {catchError, map, flatMap, take, filter, retry, delay, first} from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import * as moment from 'moment'; //import moment = require('moment');
+import moment from 'moment'; //import moment = require('moment');
 //import {Todo} from './Models';
 
 @Injectable({
@@ -180,3 +180,5 @@ export interface Todo {
  // created_date?: Date
 }
 
+export const nameofFactory = <T>() => (name: keyof T) => name;
+export const nameof = nameofFactory<Todo>();
