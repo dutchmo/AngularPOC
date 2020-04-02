@@ -14,7 +14,7 @@ import moment from 'moment'; //import moment = require('moment');
 // https://www.positronx.io/angular-service-tutorial-with-example/
 // https://blog.angular-university.io/angular-http/
 
-export class CrudService {
+export class CrudTestService {
 
   apiUrl: string = 'https://jsonplaceholder.typicode.com/todos';
 

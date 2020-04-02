@@ -21,19 +21,36 @@
 </div>
 
 
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
 
   <label>
-    First Name:
-    <input type="text" formControlName="firstName">
+    Address Line 1:
+    <input type="text" formControlName="addressLine1">
   </label>
 
+<br>
   <label>
-    Last Name:
-    <input type="text" formControlName="lastName">
+    Address Line 2:
+    <input type="text" formControlName="addressLine2">
   </label>
 
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <br>
+  <label>
+    City:
+    <input type="text" formControlName="city">
+  </label>
+  <br>
+  <label>
+    State:
+    <input type="text" formControlName="state">
+  </label>
+  <br>
+  <label>
+    Zip:
+    <input type="text" formControlName="zip">
+  </label>
+
+  <button type="submit" [disabled]="!addressForm.valid">Submit</button>
 </form>
 
 <form [formGroup]="myForm"

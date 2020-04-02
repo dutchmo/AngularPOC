@@ -31,17 +31,17 @@ input[type=text]:focus:not([ng-touched]) {
 }
 
 .ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
+  border-left: 5px solid #42A948;
 }
 
 .ng-untouched {
-  border-left: 5px solid #a94442; /* red */
+  border-left: 5px solid #a94442;
 }
 
 .ng-touched {
-  border-left: 5px solid #0000FF; /* red */
+  border-right: 15px solid #0000FF;
 }
 
-.ng-dirty {
-  border-left: 25px solid #0000FF; /* red */
+ input.ng-dirty {
+  border: 2px solid salmon;
 }

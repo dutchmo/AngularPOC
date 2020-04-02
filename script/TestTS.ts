@@ -72,43 +72,12 @@ for (let i of list) { // iterables
   console.log(i); // "4", "5", "6"
 }
 
-enum Color {Red = 1, Green, Blue}
+enum Color {Red = 1, Green = "Green", Blue = "Blue"}
 let c: Color = Color.Green;
 
-console.log("green " + c)
+Color.Green.valueOf()
+console.log("Checking enum equality " + ("Green" == Color.Green.valueOf()))
+//console.log("Checking enum equality " + (Color("Green") == Color.Green)
 
-// let m=moment().add(3, 'days')
-// console.log(m)
-
-
-enum QAStatus2 {
-  QA_NOT_STARTED = "QA Not Started",
-  QA_STARTED = "QA Started",
-  QA_COMPLETE = "QA Complete"
-}
-
-const keys = Object.keys(QAStatus2);
-
-let ids=[];
-
-keys.map(key => {
-  console.log(`color key = ${key}, value = ${QAStatus2[key]}`);
-  ids.push( { label: key, value: QAStatus2[key]},)
-});
-console.log(JSON.stringify(ids))
-console.log(QAStatus2['QA_COMPLETE'])
-
-let typedColorString: keyof typeof QAStatus2 = "QA_COMPLETE"; //QA complete
-console.log(typeof QAStatus2.QA_COMPLETE)
-
- interface Test {
-   user_id: string // PK
-   user_name: string;
- }
-type x = keyof Test;
-
-const nameofFactory = <T>() => (name: keyof T) => name;
-const nameof = nameofFactory<Test>();
-
-// const nameof = <T>(name: keyof T) => name;
- console.log(nameof("user_id"));
+/*let m=moment().add(3, 'days')
+console.log(m)*/

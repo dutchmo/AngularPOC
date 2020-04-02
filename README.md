@@ -53,3 +53,6 @@ Or you can use *ngIf
 *ngIf="myVar"
 
 208653034
+<div [ngStyle]="{'color': 'blue', 'font-size': '24px', 'font-weight': 'bold'}">
+  style using ngStyle
+</div>
