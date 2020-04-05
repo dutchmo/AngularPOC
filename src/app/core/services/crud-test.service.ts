@@ -160,7 +160,7 @@ export class CrudTestService {
     todos.forEach((todo, index) => {
       let now = moment();
       now.add(index, 'days')
-      todo.created_date = now.format("MM/DD/YY");
+      todo.created_date = now.toDate() // now.format("MM/DD/YY");
     });
 
 /*    for (let todo of todos) { // iterables
@@ -176,7 +176,7 @@ export interface Todo {
   id:string;
   title:string;
   completed?:string;
-  created_date?: string
+  created_date?: Date
  // created_date?: Date
 }
 

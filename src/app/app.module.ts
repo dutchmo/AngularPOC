@@ -4,7 +4,7 @@ import { HttpClientModule} from '@angular/common/http';
 import {TableModule} from 'primeng/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { TableComponent } from './core/components/table.component';
+import { AddressViewComponent } from './core/components/address-view.component';
 import {Checkbox, CheckboxModule, ConfirmDialogModule, DialogModule, DropdownModule, MenuModule, MessagesModule} from 'primeng';
 import {ReactiveFormsModule} from '@angular/forms';
 import { DateFormatPipe } from './core/pipes/date-format.pipe';
@@ -12,32 +12,18 @@ import { AddressCreateComponent } from './address-maint/pages/address-create/add
 import { MainMenuComponent } from './core/pages/main-menu.component';
 import {RouterModule, Routes} from '@angular/router';
 import {CrudTestService} from './core/services/crud-test.service';
-import {NotFoundComponent} from './core/not-found/not-found.component';
+import {CoreRoutingModule} from './app.routing';
 
-const appRoutes: Routes = [
-  { path: 'address-view', component: TableComponent },
-  { path: 'address/:id',      component: AddressCreateComponent },
-  {
-    path: 'addresses',
-    component: TableComponent,
-    data: { title: 'Heroes List' }
-  },
-  { path: '',
-    redirectTo: '/app-main-menu',
-    pathMatch: 'full'
-  },
-  { path: '**', component: NotFoundComponent }
-];
 
 @NgModule({
   declarations: [
-    TableComponent,
+    AddressViewComponent,
     DateFormatPipe,
     AddressCreateComponent,
     MainMenuComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes,),
+    CoreRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

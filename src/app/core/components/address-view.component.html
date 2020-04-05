@@ -1,79 +1,3 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<h1>{{ value }}</h1>
-
-<hr>
-
-<button (click)="increment()" class="increment">Increment</button>
-<button (click)="decrement()" class="decrement">Decrement</button>
-
-<p class="message">
-  {{ message }}
-</p>
-
-<div [hidden]="!even">
-  Number is Odd
-</div>
-
-<div [hidden]="even">
-  Number is Even
-</div>
-
-
-<form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
-
-  <label>
-    Address Line 1:
-    <input type="text" formControlName="addressLine1">
-  </label>
-
-<br>
-  <label>
-    Address Line 2:
-    <input type="text" formControlName="addressLine2">
-  </label>
-
-  <br>
-  <label>
-    City:
-    <input type="text" formControlName="city">
-  </label>
-  <br>
-  <label>
-    State:
-    <input type="text" formControlName="state">
-  </label>
-  <br>
-  <label>
-    Zip:
-    <input type="text" formControlName="zip">
-  </label>
-
-  <button type="submit" [disabled]="!addressForm.valid">Submit</button>
-</form>
-
-<form [formGroup]="myForm"
-      (ngSubmit)="onSubmit2(myForm.value)"
-      class="simple-form">
-
-  <div class="field" [class.error]="!myForm.controls.sku.valid && myForm.controls.sku.touched">
-    <label for="skuInput">SKU</label>
-    <input type="text"
-           id="skuInput"
-           placeholder="SKU"
-           [formControl]="myForm.controls['sku']">
-    <div *ngIf="!myForm.controls.sku.valid"
-         class="ui error message">SKU is invalid
-    </div>
-  </div>
-
-  <button type="submit" class="ui button">Submit</button>
-</form>
-
-<div class="error" ng-show="myForm.firstName.$touched">
-  E-mail is dirty
-</div>
 
 
 <p-table #tt [columns]="cols" [value]="allTodos" show-filter="true" [paginator]="true" [rows]="10"
@@ -132,8 +56,12 @@
         <a *ngSwitchCase="'id'" style="cursor:pointer"
            (click)="showConfirm()">{{todo[col.field]}}</a>
 
-        <span *ngSwitchCase="'created_date'"  filter="{ id: 'text'}">
+<!--        <span *ngSwitchCase="'created_date'"  filter="{ id: 'text'}">
         {{todo.created_date  }}
+        </span>-->
+
+        <span *ngSwitchCase="'created_date'">
+        {{todo.created_date | date:'mediumDate' }}
         </span>
 
         <span *ngSwitchDefault>
@@ -168,8 +96,8 @@
 
 <p-dialog  [(visible)]="displayConfirmDialog" [responsive]="true" showEffect="fade" [modal]="true"  [closable]="false"  [style]="{width: '30%'}"  >
   <div class="dialog-box">
-    <h1  style="text-align: center">Deleting New Hire Info.</h1>
-    <p style="padding: 10px 10px"> Are you sure to delete selected New Hire record?</p>
+    <h1  style="text-align: center">Load.</h1>
+    <p style="padding: 10px 10px"> Are you sure to load?</p>
     <br>
     <p-button  (click)="displayConfirmDialog=false" label="  Cancel  "></p-button> &nbsp;&nbsp;
     <p-button  (click)="confirmAction()" label="  Yes  "></p-button>
@@ -179,6 +107,20 @@
 
 <p-confirmDialog [style]="{width: '50px'}"></p-confirmDialog>
 
-<button type="button" (click)="showConfirm()" pButton icon="pi pi-check" label="Confirm"></button>
+<button type="button" (click)="showConfirm()" pButton icon="pi pi-check" label="Load"></button>
+
+
+<p class="message">
+  {{ message }}
+</p>
+
+<div [hidden]="!even">
+  Number is Odd
+</div>
+
+<div [hidden]="even">
+  Number is Even
+</div>
+
 
 <p-messages></p-messages>

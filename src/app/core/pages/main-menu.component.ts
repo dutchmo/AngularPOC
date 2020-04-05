@@ -18,11 +18,11 @@ export class MainMenuComponent implements OnInit {
     this.items = [{
       label: 'File',
       items: [
-        {label: 'Recent Files', icon: 'pi pi-plus', routerLink: ['/address-view'], queryParams: {'recent': 'true'}},
-        {label: 'New3', icon: 'pi pi-plus', url: 'http://www.primefaces.org/primeng'},
-        {label: 'New3', icon: 'pi pi-plus', url: 'http://www.primefaces.org/primeng'},
-        {label: 'Open', icon: 'pi pi-download', routerLink: ['/pagename']},
-        {label: 'New2', icon: 'pi pi-plus', command: (event) => {
+        {label: 'View Addresses', icon: 'pi pi-plus', routerLink: ['/address-view'], queryParams: {'myparam': 'true'}},
+        {label: 'PrimeNG', icon: 'pi pi-plus', url: 'http://www.primefaces.org/primeng'},
+        {label: 'Edit Address', icon: 'pi pi-download', routerLink: ['/address/3']},
+
+        {label: 'Run Command', icon: 'pi pi-plus', command: (event) => {
           console.log("menu")
             //event.originalEvent: Browser event
             //event.item: menuitem metadata
@@ -30,21 +30,6 @@ export class MainMenuComponent implements OnInit {
       ]
     }
     ]
-
-    this.items2 = [{
-      label: 'File',
-      items: [
-        {label: 'New', icon: 'pi pi-fw pi-plus'},
-        {label: 'Download', icon: 'pi pi-fw pi-download'}
-      ]
-    },
-      {
-        label: 'Edit',
-        items: [
-          {label: 'Add User', icon: 'pi pi-fw pi-user-plus'},
-          {label: 'Remove User', icon: 'pi pi-fw pi-user-minus'}
-        ]
-      }];
 
   }
 

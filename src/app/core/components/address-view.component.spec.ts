@@ -1,18 +1,18 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { TableComponent } from './table.component';
+import { AddressViewComponent } from './address-view.component';
 
 describe('AppComponent', () => {
-  let fixture: ComponentFixture<TableComponent>;
+  let fixture: ComponentFixture<AddressViewComponent>;
   let debugElement: DebugElement;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        TableComponent
+        AddressViewComponent
       ],
     }).compileComponents();
-    fixture = TestBed.createComponent(TableComponent);
+    fixture = TestBed.createComponent(AddressViewComponent);
     debugElement = fixture.debugElement;
   }));
 

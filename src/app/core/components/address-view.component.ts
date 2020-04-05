@@ -7,13 +7,13 @@ import {Address} from '../models/address.model';
 
 @Component({
   selector: 'list-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
+  templateUrl: './address-view.component.html',
+  styleUrls: ['./address-view.component.css'],
   providers: [MessageService, ConfirmationService]
 })
 
 
-export class TableComponent implements OnInit {
+export class AddressViewComponent implements OnInit {
 
   constructor(private crudService: CrudTestService, formBuilder: FormBuilder, private messageService: MessageService) {
     this.myForm = formBuilder.group({
@@ -23,8 +23,8 @@ export class TableComponent implements OnInit {
   }
 
 
-  //private confirmationService: ConfirmationService,
   ngOnInit(): void {
+    console.debug("table starting ")
     this.setupForm();
     this.loading = true;
   }
@@ -112,17 +112,12 @@ export class TableComponent implements OnInit {
     this.loading = false;
   }
 
-  decrement() {
-    if (this.value > 1) {
-      this.value -= 1;
-      this.message = '';
-    } else {
-      this.message = 'Minimum reached!';
-    }
-  }
-
   paginate(event) {
     console.log(event);
+  }
+
+  get fc() {
+    return this.addressForm.controls;
   }
 
   setupForm() {
@@ -186,6 +181,7 @@ export class TableComponent implements OnInit {
   confirmAction() {
     console.log(this.selectedTodos);
     console.log('confirmed accept');
+    this.increment()
     this.displayConfirmDialog = false;
   }
 
