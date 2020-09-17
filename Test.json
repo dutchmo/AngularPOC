@@ -1,3 +1,32 @@
+{
+  "imageSource": "Mail",
+  "updatedTs": "2020-04-08T05:02:33+00:00",
+  "totalImages": 1,
+  "userEmail": "ssrao_n@yahoo.com",
+  "userName": "Sam Nagabhyru",
+  "imageName": "20200407/1586321587_20191223-38-1-4.TIF",
+  "userIdent": "693f273e-0dd6-4e8a-9021-0d3edeb50851",
+  "createdUser": "ssrao_n@yahoo.com",
+  "dueDt": "2020-04-20",
+  "receivedDt": "2020-04-07",
+  "createdTs": "2020-04-08T04:53:09+00:00",
+  "userId": "693f273e-0dd6-4e8a-9021-0d3edeb50851",
+  "recordCount": 2,
+  "updatedUser": "ssrao_n@yahoo.com",
+  "SK": "nh-batch",
+  "qaStatus": "QA NOT STARTED",
+  "statusSlashTs": "qa_ready|2020-04-08T05:02:33+00:00",
+  "PK": "nh-batch-10",
+  "expireTs": 1633668789
+}
+
+{
+  "fieldName": "Mail",
+  "fieldLabel": "2020-04-08T05:02:33+00:00",
+  "fieldType": "string"
+
+}
+
 [
   {
     "employeeSsn": "123456798",

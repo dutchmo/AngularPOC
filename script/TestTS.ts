@@ -81,3 +81,60 @@ console.log("Checking enum equality " + ("Green" == Color.Green.valueOf()))
 
 /*let m=moment().add(3, 'days')
 console.log(m)*/
+const mystring = 'abc/def_ghi_klm.log'
+var mystring2 = 'x';
+
+const pos = mystring.indexOf('_')
+if (mystring != null || mystring.length > 5) {
+  console.log("s" + mystring.substring(pos + 1))
+}
+if (!mystring2) {
+  console.log("Invalid")
+}
+
+
+const wait = time => new Promise((resolve) => setTimeout(resolve, time));
+wait(2000).then(() => console.log('Hello! (Waited)')); // 'Hello!'
+
+let  fun = async parm => {
+  if (parm > 0) {
+    return Promise.resolve("success");
+
+  }else {
+    return Promise.reject("failure");
+  }
+};
+
+fun(3)
+  .then(res => console.log("output " + res))
+  .catch(error => console.log("ERROR " + error))
+  .finally(() =>  console.log("In the end"));
+
+(async () => {
+try {
+  let res = await fun(3);
+  console.log("waited " + res);
+} catch(err) {
+  console.log("Rejected: " + err);
+  } finally {
+  console.debug("Finally2")
+}
+
+})();
+
+
+ enum QAAction {
+  QA_FETCH_ALL = "QA_FETCH_ALL",
+  QA_START = "QA_START",
+  FETCH_BATCH_RECORDS = "FETCH_BATCH_RECORDS",
+  QA_SAVE = "QA Save",
+  QA_SUBMIT = "QA_SUBMIT"
+}
+console.log(typeof QAAction.QA_SAVE);
+console.log(QAAction.QA_SAVE);
+console.log(QAAction.QA_SAVE.valueOf());
+ var str = 'd,d ';
+ console.log(">>" + str.slice(0, -2))
+
+let mystr = 'gmatous@rfdinc.com'
+console.log(mystr.substring(0,mystr.indexOf('@')))

@@ -17,16 +17,13 @@ export class AddressCreateComponent implements OnInit {
     this.myForm = formBuilder.group({
       'sku': ['ABC123', Validators.required]
     });
-
   }
-
 
   ngOnInit(): void {
     console.debug("table starting ")
     this.setupForm();
     this.loading = true;
   }
-
 
   // https://www.cloudhadoop.com/2018/08/primeng-angular-datatable-tutorial-with.html
 
