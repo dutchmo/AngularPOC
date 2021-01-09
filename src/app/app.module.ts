@@ -14,6 +14,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {CrudTestService} from './core/services/crud-test.service';
 import {CoreRoutingModule} from './app.routing';
 
+import { NgxViewerModule } from 'ngx-viewer';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {CoreRoutingModule} from './app.routing';
     ConfirmDialogModule,
     MessagesModule,
     DialogModule,
-    MenuModule
+    MenuModule,
+    NgxViewerModule
   ],
   providers: [CrudTestService],
   bootstrap: [MainMenuComponent]

@@ -1,9 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CrudTestService, nameof, Todo} from '../../../core/services/crud-test.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ConfirmationService, InputTextModule, MessageService, SelectItem} from 'primeng';
+import {ConfirmationService, MessageService, SelectItem} from 'primeng';
 import {Address} from '../../../core/models/address.model';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
+
+
 
 @Component({
   selector: 'app-address-create',
@@ -19,12 +21,64 @@ export class AddressCreateComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    console.debug("table starting ")
-    this.setupForm();
-    this.loading = true;
+  items = [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15]
+  public viewerOptions: any = {
+    inline: false,
+    backdrop: true,
+    navbar: true,
+    toolbar: {
+      zoomIn: 1,
+      zoomOut: 1,
+      oneToOne: 1,
+      reset: 1,
+      prev: {
+        show: 1,
+        size: 'large',
+        // click: this.previous
+      },
+      play: {
+        show: 2,
+        size: 'large',
+      },
+      next: {
+        show: 1,
+        size: 'large',
+        // click: this.previous
+      },
+      rotateLeft: 2,
+      rotateRight: 2,
+      flipHorizontal: 2,
+      flipVertical: 2,
+    },
+    filter(image) {
+      console.log("FILTERING " + image.currentSrc);
+      image.complete;
+      console.log("image alt: " + image.alt);
+      return true;
+    },
+  };
+
+  previous() {
+    console.log("Previous");
+    return true;
   }
 
+  ngOnInit(): void {
+    console.debug('table starting ');
+    this.setupForm();
+    this.loading = true;
+
+/*    const image = document.getElementById('viewerjs');
+    const viewer = new Viewer(image, {
+      inline: true,
+      minHeight: window.innerHeight * 0.9,
+    });*/
+  }
+
+
+  onViewerReady($event) {
+    console.log("VIEWER READY");
+  }
   // https://www.cloudhadoop.com/2018/08/primeng-angular-datatable-tutorial-with.html
 
   cols = [
@@ -50,7 +104,6 @@ export class AddressCreateComponent implements OnInit {
   //userIds.unshift(99999)
   value = 1;
   message: string;
-
 
 
   // get input from another component
@@ -151,14 +204,14 @@ export class AddressCreateComponent implements OnInit {
     this.displayConfirmDialog = false;
   }
 
-/*  rejectAction() {
-    this.messageService.add({severity: 'info', summary: 'Info Message', detail: 'Rejected'});
-    this.displayConfirmDialog = false;
-  }
+  /*  rejectAction() {
+      this.messageService.add({severity: 'info', summary: 'Info Message', detail: 'Rejected'});
+      this.displayConfirmDialog = false;
+    }
 
-  clearMessages() {
-    this.messageService.clear();
-  }
-  */
+    clearMessages() {
+      this.messageService.clear();
+    }
+    */
 }
 

@@ -14,21 +14,44 @@
 </div>
 -->
 
-<!--<div class="p-grid">-->
+<div class="p-grid">
 
-<!--  <div class="p-col-6">-->
-<!--    ddd-->
-<!--  </div>-->
-<!--  <div class="p-col-6">-->
-<!--    ddd-->
-<!--  </div>-->
+  <div class="p-col-6">
+<!--    <img src="https://www.fillmurray.com/640/360" ngxViewer  [viewerOptions]="viewerOptions" (viewerReady)="onViewerReady($event)"  alt="image viewer" width="100em">-->
 
-<!--  <div class="p-col-6">-->
-<!--    ddd-->
-<!--  </div>-->
-<!--  <div class="p-col-6">-->
-<!--    ddd-->
-<!--  </div>-->
+
+<!--  <div ngxViewer ngxViewer  [viewerOptions]="viewerOptions" (viewerReady)="onViewerReady($event)">
+    <img src="https://picsum.photos/2000/1500/?random=1" alt="Image 1" width="100em">
+    <img src="https://picsum.photos/2000/1500/?random=2" alt="Image 2" width="100em"  style="display:none">
+    <img src="https://picsum.photos/2000/1500/?random=3" alt="Image 3" width="10em">
+  </div>-->
+
+<!--    <div ngxViewer ngxViewer  [viewerOptions]="viewerOptions" (viewerReady)="onViewerReady($event)">
+      <img  *ngFor="let item of items; let i=index" src="https://picsum.photos/2000/1500/?random={{item}}" alt="Image {{item}}" width="30em">
+    </div>-->
+
+    <div ngxViewer ngxViewer  [viewerOptions]="viewerOptions" (viewerReady)="onViewerReady($event)">
+      <img  *ngFor="let item of items; let i=index" src="http://127.0.0.1:3000/imageviewer?page={{item}}" alt="Image {{item}}" width="100em" >
+    </div>
+
+<!--    <div ngxViewer ngxViewer  [viewerOptions]="viewerOptions" (viewerReady)="onViewerReady($event)" *ngFor="let item of items; let i=index">
+      <img src="https://picsum.photos/2000/1500/?random={{item}}" alt="Image {{item}}" width="100em">
+    </div>-->
+
+
+  </div>
+
+    <div class="p-col-6">
+<!--      <div id="viewerjs" class="preview content" style="float: left;"> <img src="https://picsum.photos/2000/1500" alt="1" class="editImage"> </div>-->
+    </div>
+
+  <div class="p-col-6">
+
+  </div>
+  <div class="p-col-6">
+
+  </div>
+</div>
 
   <form class="p-grid" [formGroup]="addressForm" (ngSubmit)="onSubmit()">
 
@@ -102,7 +125,7 @@
 <p-dialog [(visible)]="displayConfirmDialog" [responsive]="true" showEffect="fade" [modal]="true" [closable]="false"
           [style]="{width: '30%'}">
   <div class="dialog-box">
-    <h1 style="text-align: center">Deleting New Hire Info.</h1>
+    <h1 style="text-align: center">Deleting Info.</h1>
     <p style="padding: 10px 10px"> Are you sure to delete selected record?</p>
     <br>
     <p-button (click)="displayConfirmDialog=false" label="  Cancel  "></p-button> &nbsp;&nbsp;
@@ -116,3 +139,4 @@
 <button type="button" (click)="showConfirm()" pButton icon="pi pi-check" label="Confirm"></button>
 
 <p-messages></p-messages>
+

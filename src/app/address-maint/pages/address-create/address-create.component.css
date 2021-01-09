@@ -1,4 +1,6 @@
 
+@import '~viewerjs/dist/viewer.css';
+
 label {
   text-align: right;
 }
