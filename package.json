@@ -23,7 +23,7 @@
     "@fullcalendar/core": "^4.4.0",
     "chart.js": "^2.9.3",
     "font-awesome": "^4.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-viewer": "^1.0.5",
     "primeflex": "^1.0.0",
     "primeicons": "^2.0.0",
